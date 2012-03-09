@@ -5,6 +5,7 @@
 import os,sys,pygame
 sys.path.append('code')
 from pygame.locals import *
+import random
 from path import path
 from screen import clock, screen
 
