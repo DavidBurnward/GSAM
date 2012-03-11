@@ -69,9 +69,9 @@ class player(object):
                 if self.rect.colliderect(i.rect):
                     self.x = self.xback
                     self.rect = Rect(self.x, self.y, scale, scale)
-        if self.x <= 0:
+        if self.x < 0:
             self.x =chunk_size * scale-scale
-        elif self.x >= chunk_size * scale-scale:
+        elif self.x > chunk_size * scale-scale:
             self.x = 0
             
         self.position = (self.x, self.y)
@@ -112,10 +112,11 @@ class player(object):
                 if self.rect.colliderect(i.rect):
                     self.y = self.yback
                     self.rect = Rect(self.x, self.y, scale, scale)
-        if self.y <= 0:
+        if self.y < 0:
             self.y =chunk_size * scale-scale
-        elif self.y >= chunk_size * scale-scale:
+        elif self.y > chunk_size * scale-scale:
             self.y = 0 
+
         self.position = (self.x, self.y)
 
 

@@ -4,12 +4,15 @@ from units import chunk_size, scale
 
 class fake_chunk(object):
     
-    def __init__(self, (x, y)):
+    def __init__(self, (X, Y)):
         self.img = pygame.Surface((chunk_size * scale, chunk_size * scale))
+        x, y = (X, Y)
+        x -= 1
+        x = x * scale * chunk_size
+        y -= 1
+        y = y * scale * chunk_size
         self.p_pos = (x, y)
-        for i in self.p_pos:
-            i -= 1
-            i = i * scale * chunk_size
+        print self.p_pos
 
     def update(self, xmove, ymove, run, dash, plane):
         x, y =self.p_pos
