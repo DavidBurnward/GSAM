@@ -1,8 +1,8 @@
 from pygame import Rect, Surface
 import pygame
-from path import *
+from path import path
 import os
-from units import *
+from units import massx, massy, SIZE, scale
 
 pygame.init()
 clock = pygame.time.Clock()

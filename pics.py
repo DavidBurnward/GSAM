@@ -1,8 +1,8 @@
 import pygame
 from pygame.locals import *
 import string
-from path import path as path
-from units import scale as scale
+from path import path
+from units import scale
 from spritesheet import *
 
 pygame.init()
@@ -12,7 +12,7 @@ screen = pygame.display.set_mode((massx,massy),0,32)
 icon = sprites[8][4]
 grass = sprites[2][4]
 grid = sprites[9][4]
-end = pygame.transform.scale(pygame.image.load(path + "res/end.png").convert_alpha(),screen.get_size())
+end = pygame.transform.scale(pygame.image.load(path + os.path.join("res", "end.png")).convert_alpha(),screen.get_size())
 rock = sprites[3][4]
 blast = sprites[7][4]
 heart = sprites[1][4]
