@@ -1,4 +1,4 @@
-from units import scale, SIZE
+from units import scale, SIZE, chunk_size
 from screen import screen
 import pygame
 from pygame.locals import *
@@ -33,7 +33,7 @@ class player(object):
         self.player = True
         self.hard = False
 
-    def updatex(self, xmove):
+    def updatex(self, xmove, run, dash, world):
         if xmove > 0:
             self.ani_speed -= xmove
             if self.ani_speed <= 0:
@@ -57,10 +57,26 @@ class player(object):
                 self.face = 4
 
         self.xback = self.x
-        self.x += xmove
+        if run:
+            self.x += xmove*2
+        if dash:
+            self.x += xmove*10
+        else:
+            self.x += xmove            
         self.rect = Rect(self.x,self.y,scale,scale)
+        for i in world:
+            if i.hard:
+                if self.rect.colliderect(i.rect):
+                    self.x = self.xback
+                    self.rect = Rect(self.x,self.y,scale,scale)
+        if self.x <= 0:
+            self.x =0
+        elif self.x >= chunk_size*scale-scale:
+            self.x = chunk_size*scale-scale
+            
+        self.position = (self.x,self.y)
 
-    def updatey(self, ymove):
+    def updatey(self, ymove, run, dash, world):
         if ymove > 0:
             self.ani_speed -= ymove
             if self.ani_speed <= 0:
@@ -84,24 +100,23 @@ class player(object):
                 self.face = 3
 
         self.yback = self.y
-        self.y += ymove
-        self.rect = Rect(self.x,self.y,scale,scale)
-
-    def collide(self, thing,dx,dy):
-        if self.rect.colliderect(thing.rect):
-            if dx < 0:
-               self.position = (thing.x + scale, self.position[1])
-            if dx > 0:
-                self.position = (thing.x - (scale), self.position[1])
-            if dy < 0:
-                self.position = (self.position[0],thing.y + scale)
-            if dy > 0:
-                self.position = (self.position[0],thing.y - (scale))
-            return True
+        if run:
+            self.y += ymove*2
+        elif dash:
+            self.y += ymove*10
         else:
-            return False
-
-
+            self.y += ymove            
+        self.rect = Rect(self.x,self.y,scale,scale)
+        for i in world:
+            if i.hard:
+                if self.rect.colliderect(i.rect):
+                    self.y = self.yback
+                    self.rect = Rect(self.x,self.y,scale,scale)
+        if self.y <= 0:
+            self.y =0
+        elif self.y >= chunk_size*scale-scale:
+            self.y = chunk_size*scale-scale
+        self.position = (self.x,self.y)
 
 
 

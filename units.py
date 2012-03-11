@@ -1,12 +1,12 @@
 units = 16
-SIZE = 1
+SIZE = 2
 scale = units*SIZE
 
 offsetx = 0
 offsety = 0
 
-lenx = 30
-leny = 30
+lenx = 15
+leny = 10
 
 massx = scale*lenx
 massy = scale*leny
@@ -17,7 +17,7 @@ widey = scale * lenwy
 
 wposy =-lenwy/1.5
 
-chunk = 50
+chunk_size = 20
 
 #position of background
 #herex = -(widex/2)
