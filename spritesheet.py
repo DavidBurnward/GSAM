@@ -5,7 +5,6 @@ import os
 from units import massx, massy, SIZE, scale
 
 pygame.init()
-clock = pygame.time.Clock()
 screen = pygame.display.set_mode((massx,massy),0,32)
 
 spritesheet = pygame.transform.scale(pygame.image.load(path +  os.path.join('res','spritesheet.png')).convert_alpha(),(SIZE*256,SIZE*256))

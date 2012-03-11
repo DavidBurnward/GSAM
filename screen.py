@@ -8,7 +8,8 @@ pygame.init()
 clock = pygame.time.Clock()
 
 #making the screen
-screen = pygame.display.set_mode((massx,massy),0,32)
+screen = pygame.display.set_mode((massx, massy), 0, 32)
+#screen = pygame.display.toggle_fullscreen()
 
 #making it purdy
 pygame.display.set_icon(icon)

@@ -17,19 +17,19 @@ class player(object):
         self.aniup_pos = 0
         self.anileft_pos = 0
         self.aniright_pos = 0
-        self.anidown_max = len(self.anidown)-1
-        self.aniup_max = len(self.aniup)-1
-        self.anileft_max = len(self.anileft)-1
-        self.aniright_max = len(self.aniright)-1
+        self.anidown_max = len(self.anidown) - 1
+        self.aniup_max = len(self.aniup) - 1
+        self.anileft_max = len(self.anileft) - 1
+        self.aniright_max = len(self.aniright) - 1
         self.img = self.anidown[0]
         self.hurting_init = 200
         self.hurting = self.hurting_init
         self.rect = self.img.get_rect()
         self.face = 1
-        self.x = x*scale
-        self.y = y*scale
-        self.position = (self.x,self.y)
-        self.size = (scale,scale)
+        self.x = x * scale
+        self.y = y * scale
+        self.position = (self.x, self.y)
+        self.size = (scale, scale)
         self.player = True
         self.hard = False
 
@@ -42,7 +42,7 @@ class player(object):
                 if self.aniright_pos == self.aniright_max:
                     self.aniright_pos = 0
                 else:
-                    self.aniright_pos+=1
+                    self.aniright_pos += 1
                 self.face = 2
 
         if xmove < 0:
@@ -53,28 +53,28 @@ class player(object):
                 if self.anileft_pos == self.anileft_max:
                     self.anileft_pos = 0
                 else:
-                    self.anileft_pos+=1
+                    self.anileft_pos += 1
                 self.face = 4
 
         self.xback = self.x
         if run:
-            self.x += xmove*2
+            self.x += xmove * 2
         if dash:
-            self.x += xmove*10
+            self.x += xmove * 10
         else:
             self.x += xmove            
-        self.rect = Rect(self.x,self.y,scale,scale)
+        self.rect = Rect(self.x, self.y, scale, scale)
         for i in world:
             if i.hard:
                 if self.rect.colliderect(i.rect):
                     self.x = self.xback
-                    self.rect = Rect(self.x,self.y,scale,scale)
+                    self.rect = Rect(self.x, self.y, scale, scale)
         if self.x <= 0:
-            self.x =0
-        elif self.x >= chunk_size*scale-scale:
-            self.x = chunk_size*scale-scale
+            self.x =chunk_size * scale-scale
+        elif self.x >= chunk_size * scale-scale:
+            self.x = 0
             
-        self.position = (self.x,self.y)
+        self.position = (self.x, self.y)
 
     def updatey(self, ymove, run, dash, world):
         if ymove > 0:
@@ -85,7 +85,7 @@ class player(object):
                 if self.anidown_pos == self.anidown_max:
                     self.anidown_pos = 0
                 else:
-                    self.anidown_pos+=1
+                    self.anidown_pos += 1
                 self.face = 1
 
         if ymove < 0:
@@ -96,27 +96,27 @@ class player(object):
                 if self.aniup_pos == self.aniup_max:
                     self.aniup_pos = 0
                 else:
-                    self.aniup_pos+=1
+                    self.aniup_pos += 1
                 self.face = 3
 
         self.yback = self.y
         if run:
-            self.y += ymove*2
+            self.y += ymove * 2
         elif dash:
-            self.y += ymove*10
+            self.y += ymove * 10
         else:
             self.y += ymove            
-        self.rect = Rect(self.x,self.y,scale,scale)
+        self.rect = Rect(self.x, self.y, scale, scale)
         for i in world:
             if i.hard:
                 if self.rect.colliderect(i.rect):
                     self.y = self.yback
-                    self.rect = Rect(self.x,self.y,scale,scale)
+                    self.rect = Rect(self.x, self.y, scale, scale)
         if self.y <= 0:
-            self.y =0
-        elif self.y >= chunk_size*scale-scale:
-            self.y = chunk_size*scale-scale
-        self.position = (self.x,self.y)
+            self.y =chunk_size * scale-scale
+        elif self.y >= chunk_size * scale-scale:
+            self.y = 0 
+        self.position = (self.x, self.y)
 
 
 

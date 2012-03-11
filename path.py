@@ -10,7 +10,7 @@ def get_path():
     try:
         sig = os.remove(PAT + 'pay.pyc')
     except OSError:
-        PAT = os.path.join(PAT,'')
+        PAT = os.path.join(PAT, '')
     return PAT
 path = get_path()
 

@@ -1,30 +1,30 @@
 units = 16
-SIZE = 2
+SIZE = 1
 scale = units*SIZE
 
 offsetx = 0
 offsety = 0
 
-lenx = 15
-leny = 10
+lenx = 50
+leny = 30
 
-massx = scale*lenx
-massy = scale*leny
+massx = scale * lenx
+massy = scale * leny
 lenwx = lenx * 1
 widex = scale * lenwx
 lenwy = leny * 3
 widey = scale * lenwy
 
-wposy =-lenwy/1.5
+wposy =-lenwy / 1.5
 
 chunk_size = 20
 
 #position of background
-#herex = -(widex/2)
-#herey = -(widey/2)
+#herex = -(widex / 2)
+#herey = -(widey / 2)
 herex = 0
 #herey = 0
-herey = -(widey/1.5)
+herey = -(widey / 1.5)
 herexback = herex
 hereyback = herey
 

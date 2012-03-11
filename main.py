@@ -10,11 +10,21 @@ from pics import rock
 from units import massx, massy
 
 #getting the world
-from world import chunk
+from chunk import chunk
+from fake_chunk import fake_chunk
+from world import world1
 import time
-
-chunk1 = chunk()
-chunk2 = chunk()
+real = chunk()
+chunks = []
+for x in xrange(3):
+    list = []
+    for y in xrange(3):
+        if (x,y) == (1,1):
+            list.append(real)
+            print 'true'
+        else:
+            list.append(fake_chunk((x, y)))
+    chunks.append(list)
 
 screen_rect = screen.get_rect()
 camera = screen_rect.copy()
@@ -67,8 +77,16 @@ while True:
     dx = dx
     dy = dy
     screen.fill(black)
-    chunk1.update(dx,dy,run,dash)
-    screen.blit(chunk1.img,chunk1.p_pos)
+    for x in chunks:
+        for y in x:
+            if y == real:
+                y.update(dx, dy, run, dash, world1)
+            else:
+                y.update(dx, dy, run, dash, world1)
+    
+    for x in chunks:
+        for y in x:
+            screen.blit(y.img, y.p_pos)
 
     pygame.display.update()
 
