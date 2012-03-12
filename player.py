@@ -70,8 +70,8 @@ class player(object):
                     self.x = self.xback
                     self.rect = Rect(self.x, self.y, scale, scale)
         if self.x < 0:
-            self.x =world[0] * scale-scale
-        elif self.x > world[0] * scale-scale:
+            self.x =world[0][0] * scale-scale
+        elif self.x > world[0][0] * scale-scale:
             self.x = 0
             
         self.position = (self.x, self.y)
@@ -113,8 +113,8 @@ class player(object):
                     self.y = self.yback
                     self.rect = Rect(self.x, self.y, scale, scale)
         if self.y < 0:
-            self.y =world[0] * scale-scale
-        elif self.y > world[0] * scale-scale:
+            self.y =world[0][1] * scale-scale
+        elif self.y > world[0][1] * scale-scale:
             self.y = 0 
 
         self.position = (self.x, self.y)

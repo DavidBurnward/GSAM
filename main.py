@@ -1,33 +1,22 @@
 #!/usr/bin/env python
 
-#This program written in comic sans
+#This program was written in comic sans
 
 import os,sys,pygame
 from pygame.locals import *
 from path import path
 from screen import clock, screen
-from pics import rock
+from pics import rock, timgs
+
 from units import massx, massy
 
 #getting the world
 from chunk import chunk
 from fake_chunk import fake_chunk
-from world import world1, world2
+from world import world1
 import time
 
 real = chunk(world1)
-
-#chunks = []
-#for x in xrange(3):
-#    list = []
-#    for y in xrange(3):
-#        if (x,y) == (1,1):
-#            list.append(real)
-#            print 'true'
-#        else:
-#            list.append(fake_chunk((x, y)))
-#    chunks.append(list)
-
 
 screen_rect = screen.get_rect()
 camera = screen_rect.copy()
@@ -41,7 +30,7 @@ dash = False
 
 #starting the loop
 while True:
-    clock.tick(60)
+    clock.tick(30)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
@@ -81,13 +70,7 @@ while True:
     dy = dy
     screen.fill(black)
     real.update(dx, dy, run, dash, world1)
-#    for x in chunks:
-   #     for y in x:
-      #      if y != real:
-         #       y.update(real.p_pos, world2)
-    
-#    for x in chunks:
-   #     for y in x:
+
     screen.blit(real.img, real.p_pos)
 
     pygame.display.update()

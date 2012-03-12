@@ -10,9 +10,14 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode((massx,massy),0,32)
 
 icon = sprites[8][4]
-grass = sprites[2][4]
-grid = sprites[9][4]
 end = pygame.transform.scale(pygame.image.load(path + os.path.join("res", "end.png")).convert_alpha(),screen.get_size())
+map1 = pygame.image.load(path + os.path.join("res", "map.png")).convert_alpha()
+grass = sprites[2][4]
+wood = sprites[6][4]
+grid = sprites[9][4]
+dirt = sprites[4][4]
+dtg1 = sprites[2][5]
+dtg2 = sprites[3][5]
 rock = sprites[3][4]
 blast = sprites[7][4]
 heart = sprites[1][4]
@@ -51,6 +56,7 @@ tleft = [pygame.transform.flip(sprites[4][1],1,0),
             pygame.transform.flip(sprites[5][1],1,0)]
 tright = [sprites[4][1],sprites[3][1],sprites[4][1],sprites[5][1]]
 
+timgs = [tdown, tup, tleft, tright]
 
 
 

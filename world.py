@@ -1,36 +1,30 @@
-from path import path as path
-#import health
-#import Terranada
-#import enemy
-#import gun
-from pics import rock as rock, grass as grass
+from path import path
+from pics import rock, grass, wood, map1, dirt, dtg1, dtg2
 from tile import tile
 from units import massx, massy, chunk_size, scale
 import pygame
 from pygame.locals import *
-from borders import wall1, wall2, wall3, wall4
-
-#sams_health = health.health()
-
-#terranada = Terranada.Terranada()
-#terras_health = health.health()
-#terras_health.setset(1)
 
 composition = []
-size = 30
-for y in xrange(chunk_size):
-    for x in xrange(chunk_size):
-        composition.append(tile(x, y, grass, False))
+size = [map1.get_height(), map1.get_width()]
+for y in xrange(size[0]):
+    for x in xrange(size[1]):
+        c = map1.get_at((x,y))
+        if c == (0, 255, 42, 255):
+            composition.append(tile(x, y, grass, False))
+        elif c == (181, 100, 34, 255):
+            composition.append(tile(x, y, wood, False))
+        elif c == (159,159,159,255):
+            composition.append(tile(x, y, grass, False))
+            composition.append(tile(x, y, rock, True))
+        elif c == (255, 114, 0, 255):
+            composition.append(tile(x, y, dirt, False))
+        elif c == (55, 114, 0, 255):
+            composition.append(tile(x, y, dtg1, False))
+        elif c == (85, 142, 29, 255):
+            composition.append(tile(x, y, dtg2, False))
 
-composition = composition + wall1 + wall3
 world1 = (size, composition)
-
-world2 = []
-for y in xrange(chunk_size):
-    for x in xrange(chunk_size):
-        world2.append(tile(x, y, grass, False))
-
-world2 = world2 + wall1 + wall3
 
 
 

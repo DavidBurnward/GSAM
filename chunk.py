@@ -4,7 +4,7 @@ import player
 #import Terranada
 #import enemy
 #import gun
-from pics import rock as rock, grass as grass
+from pics import rock, grass, wood
 from tile import tile
 from units import massx, massy, scale
 import pygame
@@ -12,7 +12,7 @@ from pygame.locals import *
 from borders import wall1, wall2, wall3, wall4
 from world import world1
 
-player1 = player.player(world1[0] / 2, world1[0] / 2)
+player1 = player.player(world1[0][0] / 2, world1[0][1] / 2)
 #sams_health = health.health()
 #world1.append(tile(4, 4, rock, True))
 
@@ -24,7 +24,7 @@ player1 = player.player(world1[0] / 2, world1[0] / 2)
 class chunk(object):
 
     def __init__(self, world):
-        self.img = pygame.Surface((world[0] * scale, world[0] * scale))
+        self.img = pygame.Surface((world[0][0] * scale, world[0][1] * scale))
         world[1].append(player1)
         for i in world[1]:
             self.img.blit(i.img,i.position)
