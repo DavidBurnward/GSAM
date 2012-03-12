@@ -14,6 +14,7 @@ from world import world1
 
 player1 = player.player(chunk_size/2,chunk_size/2)
 #sams_health = health.health()
+#world1.append(tile(4, 4, rock, True))
 
 #terranada = Terranada.Terranada()
 #terras_health = health.health()

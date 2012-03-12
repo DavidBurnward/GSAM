@@ -102,7 +102,7 @@ class player(object):
         self.yback = self.y
         if run:
             self.y += ymove * 2
-        elif dash:
+        if dash:
             self.y += ymove * 10
         else:
             self.y += ymove            

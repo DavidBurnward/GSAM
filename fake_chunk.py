@@ -1,33 +1,26 @@
 import pygame
 from pygame.locals import *
-from units import chunk_size, scale
+from units import chunk_size, scale, massx, massy
 
 class fake_chunk(object):
     
     def __init__(self, (X, Y)):
         self.img = pygame.Surface((chunk_size * scale, chunk_size * scale))
+        self.X, self.Y = (X,Y)
         x, y = (X, Y)
         x -= 1
-        x = x * scale * chunk_size
+        x = x * (chunk_size * scale) + (massx / 2) - scale / 2 - chunk_size * scale / 2
         y -= 1
-        y = y * scale * chunk_size
+        y = y * (chunk_size * scale) + (massy / 2) - scale / 2 - chunk_size * scale / 2
         self.p_pos = (x, y)
-        print self.p_pos
 
-    def update(self, xmove, ymove, run, dash, plane):
-        x, y =self.p_pos
-        if run:
-            x -= xmove * 2
-            y -= ymove * 2
-        if dash:
-            x -= xmove * 10
-            y -= ymove * 10
-        else:
-            x -= xmove  
-            y -= ymove
+    def update(self, pos, plane):
+        self.x = self.X * chunk_size * scale + pos[0] - chunk_size * scale
+        self.y = self.Y * chunk_size * scale + pos[1] - chunk_size * scale
         for i in plane:
             self.img.blit(i.img,i.position)
-        self.p_pos = (x,y)
+        print self.x, self.y
+        self.p_pos = (self.x,self.y)
 
 
 

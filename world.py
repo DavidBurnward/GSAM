@@ -1,5 +1,4 @@
 from path import path as path
-import player
 #import health
 #import Terranada
 #import enemy
@@ -22,12 +21,14 @@ for y in xrange(chunk_size):
     for x in xrange(chunk_size):
         world1.append(tile(x, y, grass, False))
 
-world1.append(tile(4, 4, rock, True))
 #world1 = world1 + wall1 + wall2 + wall3 + wall4
 
 
 
-
+world2 = []
+for y in xrange(chunk_size):
+    for x in xrange(chunk_size):
+        world2.append(tile(x, y, grass, False))
 
 
 

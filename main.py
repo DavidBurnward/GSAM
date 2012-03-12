@@ -12,7 +12,7 @@ from units import massx, massy
 #getting the world
 from chunk import chunk
 from fake_chunk import fake_chunk
-from world import world1
+from world import world1, world2
 import time
 real = chunk()
 chunks = []
@@ -77,12 +77,11 @@ while True:
     dx = dx
     dy = dy
     screen.fill(black)
+    real.update(dx, dy, run, dash, world1)
     for x in chunks:
         for y in x:
-            if y == real:
-                y.update(dx, dy, run, dash, world1)
-            else:
-                y.update(dx, dy, run, dash, world1)
+            if y != real:
+                y.update(real.p_pos, world2)
     
     for x in chunks:
         for y in x:

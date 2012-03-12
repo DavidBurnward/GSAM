@@ -5,7 +5,7 @@ scale = units*SIZE
 offsetx = 0
 offsety = 0
 
-lenx = 50
+lenx = 30
 leny = 30
 
 massx = scale * lenx
