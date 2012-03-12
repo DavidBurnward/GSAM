@@ -13,7 +13,6 @@ from borders import wall1, wall2, wall3, wall4
 from world import world1
 
 player1 = player.player(world1[0][0] / 2, world1[0][1] / 2)
-#sams_health = health.health()
 #world1.append(tile(4, 4, rock, True))
 
 #terranada = Terranada.Terranada()
@@ -46,8 +45,7 @@ class chunk(object):
                 if i.position[0] <= player1.position[0] + (massx / 2 + scale * 3):
                     if i.position[1] >= player1.position[1] - (massx / 2 + scale * 3):
                         if i.position[1] <= player1.position[1] + (massx / 2 + scale * 3):
-                            self.img.blit(i.img,i.position)
-            
+                            self.img.blit(i.img,i.position)            
 
 
 

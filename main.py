@@ -15,6 +15,9 @@ from chunk import chunk
 from fake_chunk import fake_chunk
 from world import world1
 import time
+from health import health
+
+sams_health = health()
 
 real = chunk(world1)
 
@@ -72,6 +75,7 @@ while True:
     real.update(dx, dy, run, dash, world1)
 
     screen.blit(real.img, real.p_pos)
+    screen.blit(sams_health.img, sams_health.position)
 
     pygame.display.update()
 

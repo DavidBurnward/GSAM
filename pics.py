@@ -11,7 +11,8 @@ screen = pygame.display.set_mode((massx,massy),0,32)
 
 icon = sprites[8][4]
 end = pygame.transform.scale(pygame.image.load(path + os.path.join("res", "end.png")).convert_alpha(),screen.get_size())
-map1 = pygame.image.load(path + os.path.join("res", "map.png")).convert_alpha()
+map1 = pygame.image.load(path + os.path.join("res", "map1.png")).convert_alpha()
+map2 = pygame.image.load(path + os.path.join("res", "map2.png")).convert_alpha()
 grass = sprites[2][4]
 wood = sprites[6][4]
 grid = sprites[9][4]
