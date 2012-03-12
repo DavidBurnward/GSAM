@@ -7,7 +7,7 @@ from pics import heart, eheart
 class health(object):
 
     def __init__(self):
-        self.img = pygame.Surface((massx, massy))
+        self.img = pygame.Surface((massx, massy)).convert_alpha()
         self.position = (0,0)
         self.hp = 20
         self.health = heart

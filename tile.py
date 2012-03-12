@@ -4,10 +4,11 @@ import pygame
 
 class tile(object):
 
-    def __init__(self,x,y,item,solid):
+    def __init__(self, x, y, item, solid, portal):
         self.img = item
         self.rect = self.img.get_rect(topleft=(x*scale,y*scale))
         self.hard = solid
+        self.portal = portal
         self.player = False
         self.x = x*scale
         self.y = y*scale

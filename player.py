@@ -32,6 +32,7 @@ class player(object):
         self.size = (scale, scale)
         self.player = True
         self.hard = False
+        self.portal = False
 
     def updatex(self, xmove, run, dash, world):
         if xmove > 0:

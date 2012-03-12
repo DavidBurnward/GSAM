@@ -13,13 +13,9 @@ from units import massx, massy
 #getting the world
 from chunk import chunk
 from fake_chunk import fake_chunk
-from world import world1
 import time
-from health import health
 
-sams_health = health()
-
-real = chunk(world1)
+real = chunk()
 
 screen_rect = screen.get_rect()
 camera = screen_rect.copy()
@@ -72,10 +68,10 @@ while True:
     dx = dx
     dy = dy
     screen.fill(black)
-    real.update(dx, dy, run, dash, world1)
+    real.update(dx, dy, run, dash)
 
     screen.blit(real.img, real.p_pos)
-    screen.blit(sams_health.img, sams_health.position)
+#    screen.blit(sams_health.img, sams_health.position)
 
     pygame.display.update()
 

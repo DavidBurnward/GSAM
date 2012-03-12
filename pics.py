@@ -15,6 +15,7 @@ map1 = pygame.image.load(path + os.path.join("res", "map1.png")).convert_alpha()
 map2 = pygame.image.load(path + os.path.join("res", "map2.png")).convert_alpha()
 grass = sprites[2][4]
 wood = sprites[6][4]
+portal = sprites[6][5]
 grid = sprites[9][4]
 dirt = sprites[4][4]
 dtg1 = sprites[2][5]
