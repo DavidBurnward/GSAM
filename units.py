@@ -17,7 +17,7 @@ widey = scale * lenwy
 
 wposy =-lenwy / 1.5
 
-chunk_size = 20
+chunk_size = 40
 
 #position of background
 #herex = -(widex / 2)

@@ -14,17 +14,20 @@ from chunk import chunk
 from fake_chunk import fake_chunk
 from world import world1, world2
 import time
-real = chunk()
-chunks = []
-for x in xrange(3):
-    list = []
-    for y in xrange(3):
-        if (x,y) == (1,1):
-            list.append(real)
-            print 'true'
-        else:
-            list.append(fake_chunk((x, y)))
-    chunks.append(list)
+
+real = chunk(world1)
+
+#chunks = []
+#for x in xrange(3):
+#    list = []
+#    for y in xrange(3):
+#        if (x,y) == (1,1):
+#            list.append(real)
+#            print 'true'
+#        else:
+#            list.append(fake_chunk((x, y)))
+#    chunks.append(list)
+
 
 screen_rect = screen.get_rect()
 camera = screen_rect.copy()
@@ -78,14 +81,14 @@ while True:
     dy = dy
     screen.fill(black)
     real.update(dx, dy, run, dash, world1)
-    for x in chunks:
-        for y in x:
-            if y != real:
-                y.update(real.p_pos, world2)
+#    for x in chunks:
+   #     for y in x:
+      #      if y != real:
+         #       y.update(real.p_pos, world2)
     
-    for x in chunks:
-        for y in x:
-            screen.blit(y.img, y.p_pos)
+#    for x in chunks:
+   #     for y in x:
+    screen.blit(real.img, real.p_pos)
 
     pygame.display.update()
 

@@ -19,7 +19,6 @@ class fake_chunk(object):
         self.y = self.Y * chunk_size * scale + pos[1] - chunk_size * scale
         for i in plane:
             self.img.blit(i.img,i.position)
-        print self.x, self.y
         self.p_pos = (self.x,self.y)
 
 

@@ -16,20 +16,21 @@ from borders import wall1, wall2, wall3, wall4
 #terras_health = health.health()
 #terras_health.setset(1)
 
-world1 = []
+composition = []
+size = 30
 for y in xrange(chunk_size):
     for x in xrange(chunk_size):
-        world1.append(tile(x, y, grass, False))
+        composition.append(tile(x, y, grass, False))
 
-#world1 = world1 + wall1 + wall2 + wall3 + wall4
-
-
+composition = composition + wall1 + wall3
+world1 = (size, composition)
 
 world2 = []
 for y in xrange(chunk_size):
     for x in xrange(chunk_size):
         world2.append(tile(x, y, grass, False))
 
+world2 = world2 + wall1 + wall3
 
 
 

@@ -1,4 +1,4 @@
-from units import scale, SIZE, chunk_size
+from units import scale, SIZE
 from screen import screen
 import pygame
 from pygame.locals import *
@@ -64,14 +64,14 @@ class player(object):
         else:
             self.x += xmove            
         self.rect = Rect(self.x, self.y, scale, scale)
-        for i in world:
+        for i in world[1]:
             if i.hard:
                 if self.rect.colliderect(i.rect):
                     self.x = self.xback
                     self.rect = Rect(self.x, self.y, scale, scale)
         if self.x < 0:
-            self.x =chunk_size * scale-scale
-        elif self.x > chunk_size * scale-scale:
+            self.x =world[0] * scale-scale
+        elif self.x > world[0] * scale-scale:
             self.x = 0
             
         self.position = (self.x, self.y)
@@ -107,14 +107,14 @@ class player(object):
         else:
             self.y += ymove            
         self.rect = Rect(self.x, self.y, scale, scale)
-        for i in world:
+        for i in world[1]:
             if i.hard:
                 if self.rect.colliderect(i.rect):
                     self.y = self.yback
                     self.rect = Rect(self.x, self.y, scale, scale)
         if self.y < 0:
-            self.y =chunk_size * scale-scale
-        elif self.y > chunk_size * scale-scale:
+            self.y =world[0] * scale-scale
+        elif self.y > world[0] * scale-scale:
             self.y = 0 
 
         self.position = (self.x, self.y)
